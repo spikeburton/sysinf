@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
-	"golang.org/x/sys/unix"
+	sys "golang.org/x/sys/unix"
 )
 
 func main() {
-	ver, _ := unix.Sysctl("kern.version")
-	cpu, _ := unix.Sysctl("machdep.cpu.brand_string")
-	cores, _ := unix.SysctlUint32("machdep.cpu.core_count")
+	ver, _ := sys.Sysctl("kern.version")
+	cpu, _ := sys.Sysctl("machdep.cpu.brand_string")
+	cores, _ := sys.SysctlUint32("machdep.cpu.core_count")
 
 	fmt.Printf("System Information\n---\n\n")
 	fmt.Printf("Kernel: \t%s\n", ver)
