@@ -7,13 +7,10 @@ import (
 )
 
 func main() {
-	osType, _ := unix.Sysctl("kern.ostype")
-	osRelease, _ := unix.Sysctl("kern.osrelease")
-	cpuVendor, _ := unix.Sysctl("machdep.cpu.vendor")
-	cpuBrand, _ := unix.Sysctl("machdep.cpu.brand_string")
+	ver, _ := unix.Sysctl("kern.version")
+	cpu, _ := unix.Sysctl("machdep.cpu.brand_string")
 
-	fmt.Println(osType)
-	fmt.Println(osRelease)
-	fmt.Println(cpuVendor)
-	fmt.Println(cpuBrand)
+	fmt.Printf("System Information\n---\n\n")
+	fmt.Printf("Kernel: \t%s\n", ver)
+	fmt.Printf("CPU: \t\t%s\n", cpu)
 }
